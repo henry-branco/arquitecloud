@@ -548,18 +548,3 @@ o endpoint para apontar para ela, sem precisar recriar do zero.
 O custo é o fator que mais diferencia o SageMaker Endpoint dos outros
 serviços que vimos até aqui. Mantenha o hábito de deletar endpoints de
 teste imediatamente após o uso.
-
-## Parabéns por ter chegado até aqui
-
-Este post cobre o suficiente para você subir um modelo para produção na
-AWS e entender o que está por trás de cada etapa, mas o SageMaker tem
-muito mais além disso: pipelines de treino, feature store, monitoramento
-de modelo, shadow deployments... e isso é só um dos serviços de ML
-entre dezenas na AWS. Se você quer aprender AWS de forma estruturada,
-do fundamento até casos reais de uso em produção, dá uma olhada no meu
-curso.
-
-Como recompensa por ter lido até o fim, use o cupom **`ARQUITECLOUD`**
-e garanta **50% de desconto**:
-
-**[Quero aprender AWS na prática »](https://go.hotmart.com/M105171021R)**

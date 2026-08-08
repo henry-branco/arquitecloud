@@ -226,15 +226,13 @@ lógica por trás de praticamente tudo que se faz com S3: criar um cliente
 (ou usar a CLI já configurada), apontar para uma região e um bucket, e
 chamar o método certo para a ação que você quer.
 
-## Parabéns por ter chegado até aqui
+## Continuando
 
-Esse post cobre o básico para você sair do zero, mas o S3 sozinho já dá
-pano pra manga: versionamento, políticas de acesso, ciclo de vida de
-objetos, integração com outros serviços da AWS... e isso é só um serviço
-entre dezenas. Se você quer aprender AWS de forma estruturada, do
-fundamento até casos reais de uso em produção, dá uma olhada no meu curso.
+O S3 raramente vive sozinho. Onde ele fica mais interessante é quando entra
+num pipeline com outros serviços: alimentando um crawler do Glue, sendo
+consultado via Athena ou processado por uma função Lambda em resposta a
+novos objetos.
 
-Como recompensa por ter lido até o fim, use o cupom **`ARQUITECLOUD`** e
-garanta **50% de desconto**:
-
-**[Quero aprender AWS na prática »](https://go.hotmart.com/M105171021R)**
+É esse pipeline serverless (S3, Lambda, Glue e Athena) que eu cubro no curso
+[Engenharia de dados: AWS, Python e B3 na prática](https://go.hotmart.com/M105171021R).
+Caso queira, utilize o cupom `ARQUITECLOUD` para garantir 50% de desconto na compra.

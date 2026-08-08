@@ -346,17 +346,3 @@ isso tudo no ar (na prática, perto de \$0 para um blog pequeno) e como
 comprar e apontar um domínio próprio, seja pela Route 53 ou por outro
 registrador. A partir de agora, publicar conteúdo novo no site é só dar
 push: o Amplify cuida de buildar e colocar no ar.
-
-## Parabéns por ter chegado até aqui
-
-Esse post cobre o suficiente para você publicar qualquer site estático na
-AWS com deploy automático, mas o Amplify Hosting sozinho já tem bastante
-coisa além disso: preview de pull requests, variáveis de ambiente por
-branch, regras de redirect e reescrita, controle de acesso... e isso é só
-um serviço entre dezenas. Se você quer aprender AWS de forma estruturada, do
-fundamento até casos reais de uso em produção, dá uma olhada no meu curso.
-
-Como recompensa por ter lido até o fim, use o cupom **`ARQUITECLOUD`** e
-garanta **50% de desconto**:
-
-**[Quero aprender AWS na prática »](https://go.hotmart.com/M105171021R)**
