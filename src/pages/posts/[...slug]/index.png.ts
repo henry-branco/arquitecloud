@@ -4,6 +4,7 @@ import { fontData, experimental_getFontFileURL } from "astro:assets";
 import satori from "satori";
 import sharp from "sharp";
 import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
+import { fetchFontData } from "@/utils/fetchFontData";
 import { getPostSlug } from "@/utils/getPostPaths";
 import config from "@/config";
 
@@ -36,12 +37,8 @@ export const GET: APIRoute = async ({ props, url }) => {
   }
 
   const [regularData, boldData] = await Promise.all([
-    fetch(experimental_getFontFileURL(regularFontPath, url)).then(res =>
-      res.arrayBuffer()
-    ),
-    fetch(experimental_getFontFileURL(boldFontPath, url)).then(res =>
-      res.arrayBuffer()
-    ),
+    fetchFontData(experimental_getFontFileURL(regularFontPath, url)),
+    fetchFontData(experimental_getFontFileURL(boldFontPath, url)),
   ]);
 
   const svg = await satori(
