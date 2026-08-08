@@ -8,7 +8,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build
+        - NODE_OPTIONS='--dns-result-order=ipv4first' npm run build
   artifacts:
     baseDirectory: dist
     files:
