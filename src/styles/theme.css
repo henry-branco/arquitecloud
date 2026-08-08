@@ -1,0 +1,42 @@
+/* Register design tokens for Tailwind v4 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-app: var(--font-google-sans-code);
+}
+
+/* Light theme values — AWS-inspired: Squid Ink text on white, Orange accent */
+:root,
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #232f3e;
+  --accent: #ff9900;
+  --accent-foreground: #16202c;
+  --muted: #eef1f4;
+  --muted-foreground: #5b6b7c;
+  --border: #dde3e8;
+}
+
+/* Dark theme values — AWS-inspired: Squid Ink background, Orange accent */
+[data-theme="dark"] {
+  --background: #16202c;
+  --foreground: #eaedf3;
+  --accent: #ff9900;
+  --accent-foreground: #16202c;
+  --muted: #232f3e;
+  --muted-foreground: #afb9ca;
+  --border: #37475a;
+}
+
+/* Personal signature accent for the author name on the about page */
+.signature {
+  font-family: "Caveat", cursive;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}

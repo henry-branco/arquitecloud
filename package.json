@@ -1,0 +1,50 @@
+{
+  "name": "arquitecloud",
+  "type": "module",
+  "version": "6.1.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "preview": "astro preview",
+    "sync": "astro sync",
+    "astro": "astro",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.0",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.3",
+    "dayjs": "^1.11.21",
+    "lodash.kebabcase": "^4.1.1",
+    "@astrojs/markdown-remark": "^7.2.0",
+    "rehype-callouts": "^2.2.0",
+    "remark-collapse": "^0.1.2",
+    "remark-toc": "^9.0.0",
+    "satori": "^0.26.0",
+    "sharp": "^0.35.2",
+    "slugify": "^1.6.9",
+    "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@pagefind/default-ui": "^1.5.2",
+    "@shikijs/transformers": "^4.3.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/lodash.kebabcase": "^4.1.9",
+    "@typescript-eslint/parser": "^8.62.0",
+    "eslint": "^10.6.0",
+    "eslint-plugin-astro": "^2.1.1",
+    "pagefind": "^1.5.2",
+    "prettier": "3.9.3",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^6.0.3"
+  }
+}
