@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "💬 Prefere conversar antes?"
+    url: "https://www.linkedin.com/in/henriqueajnb/"
+    about: "Me chame no LinkedIn pra trocar ideia sobre o tema antes de abrir uma issue."
