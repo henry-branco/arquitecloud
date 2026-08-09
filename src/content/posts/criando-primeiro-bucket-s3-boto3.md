@@ -37,14 +37,14 @@ Antes de começar, você precisa de três coisas:
   gerenciar dependências e rodar os scripts:
 
   ```bash
-  uv add boto3
+  uv add boto3==1.38.4
   ```
 
-  Isso adiciona o boto3 ao `pyproject.toml`/`uv.lock` do projeto. Uma coisa
-  boa de saber: o boto3 usa automaticamente as mesmas credenciais
-  configuradas pelo `aws configure`, então você não precisa configurar nada
-  de novo para o Python: CLI e código Python "conversam" com a AWS da
-  mesma forma.
+  Isso adiciona o boto3 (versão 1.38.4) ao `pyproject.toml`/`uv.lock`
+  do projeto. Uma coisa  boa de saber: o boto3 usa automaticamente as mesmas
+  credenciais configuradas pelo `aws configure`, então você não precisa
+  configurar nada de novo para o Python: CLI e código Python "conversam" com a
+  AWS da mesma forma.
 
 Com isso pronto, vamos ao que interessa.
 

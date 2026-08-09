@@ -448,7 +448,7 @@ uv run invocar_endpoint.py
 
 A saída esperada:
 
-```
+```text
 [10.0, 20.0, 30.0]
 ```
 

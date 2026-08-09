@@ -2,5 +2,12 @@
   "files.associations": {
     "*.md": "markdown"
   },
-  "editor.rulers": [80]
+  "editor.rulers": [80],
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    }
+  }
 }
