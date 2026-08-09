@@ -2,7 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://www.example.com/",
+    url: "https://main.d24bpvjwpji1xz.amplifyapp.com/",
     title: "ArquiteCloud",
     description: "Conteúdo gratuito sobre AWS por Henrique Branco",
     author: "Henrique Branco",
