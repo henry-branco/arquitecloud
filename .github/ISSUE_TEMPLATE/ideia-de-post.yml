@@ -1,0 +1,127 @@
+name: "💡 Ideia de post"
+description: "Tem uma ideia de post sobre AWS? Registre aqui! Toda sugestão é bem-vinda."
+title: "[Ideia] "
+labels: ["ideia-de-post"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Obrigado por trazer uma ideia! 🎉
+
+        Este espaço é pra colecionar temas que valem virar post lá no [ArquiteCloud](https://main.d24bpvjwpji1xz.amplifyapp.com/).
+
+        Não precisa preencher tudo, só o que você já tem na cabeça. A proposta aqui é tirar a ideia do papel!
+
+  - type: input
+    id: tema
+    attributes:
+      label: "Qual é o tema?"
+      description: "Em uma frase, do que o post trataria?"
+      placeholder: "Ex.: Como configurar OIDC entre GitHub Actions e AWS sem chave de acesso"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: servico
+    attributes:
+      label: "Serviço(s) AWS envolvido(s)"
+      description: "Marque um ou mais. Se não estiver na lista, tudo bem! Comenta lá no campo de contexto."
+      multiple: true
+      options:
+        - S3
+        - EC2
+        - Lambda
+        - IAM
+        - VPC
+        - RDS
+        - DynamoDB
+        - SageMaker
+        - Amplify
+        - CloudFormation / CDK
+        - API Gateway
+        - CloudWatch
+        - ECS / Fargate
+        - EKS
+        - Route 53
+        - Bedrock
+        - Outro / múltiplos
+    validations:
+      required: false
+
+  - type: dropdown
+    id: nivel
+    attributes:
+      label: "Nível sugerido"
+      description: "Pra quem esse conteúdo seria mais útil?"
+      options:
+        - Iniciante
+        - Intermediário
+        - Avançado
+        - Ainda não sei
+    validations:
+      required: false
+
+  - type: dropdown
+    id: formato
+    attributes:
+      label: "Formato provável"
+      options:
+        - Tutorial passo a passo
+        - Conceito / explicação
+        - Comparação entre opções
+        - Estudo de caso
+        - Dica rápida
+        - Ainda não sei
+    validations:
+      required: false
+
+  - type: textarea
+    id: motivacao
+    attributes:
+      label: "Por que esse post seria útil?"
+      description: "Qual dor ou dúvida ele resolve? Você já passou por isso? Viu alguém perguntando?"
+      placeholder: "Ex.: Vejo muita gente configurando IAM User com chave estática no CI/CD quando poderia usar OIDC — queria mostrar o caminho seguro."
+    validations:
+      required: false
+
+  - type: textarea
+    id: pontos
+    attributes:
+      label: "Pontos que o post poderia cobrir"
+      description: "Bullets soltos, ordem não importa. Cole links, prints, referências, qualquer coisa que ajude a lembrar depois."
+      placeholder: |
+        - Contexto do problema
+        - Setup do provider OIDC
+        - Trust policy na role
+        - Exemplo de workflow do GitHub Actions
+        - Gotchas comuns
+    validations:
+      required: false
+
+  - type: textarea
+    id: referencias
+    attributes:
+      label: "Referências / links úteis"
+      description: "Docs da AWS, posts que inspiraram, threads no LinkedIn, vídeos no YouTube..."
+      placeholder: "https://docs.aws.amazon.com/..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: "Prioridade / urgência (opcional)"
+      description: "Só um chute — ajuda a organizar a fila."
+      options:
+        - "🔥 Alta — assunto quente / muita gente perguntando"
+        - "🙂 Média — boa ideia, sem pressa"
+        - "🌱 Baixa — anotar e deixar amadurecer"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        Valeu por contribuir! 🚀 Se quiser bater um papo sobre a ideia antes, é só chamar no [LinkedIn](https://www.linkedin.com/in/henriqueajnb/).

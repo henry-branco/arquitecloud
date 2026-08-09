@@ -37,14 +37,14 @@ Antes de começar, você precisa de três coisas:
   gerenciar dependências e rodar os scripts:
 
   ```bash
-  uv add boto3
+  uv add boto3==1.38.4
   ```
 
-  Isso adiciona o boto3 ao `pyproject.toml`/`uv.lock` do projeto. Uma coisa
-  boa de saber: o boto3 usa automaticamente as mesmas credenciais
-  configuradas pelo `aws configure`, então você não precisa configurar nada
-  de novo para o Python: CLI e código Python "conversam" com a AWS da
-  mesma forma.
+  Isso adiciona o boto3 (versão 1.38.4) ao `pyproject.toml`/`uv.lock`
+  do projeto. Uma coisa  boa de saber: o boto3 usa automaticamente as mesmas
+  credenciais configuradas pelo `aws configure`, então você não precisa
+  configurar nada de novo para o Python: CLI e código Python "conversam" com a
+  AWS da mesma forma.
 
 Com isso pronto, vamos ao que interessa.
 
@@ -79,7 +79,7 @@ make_bucket: meu-bucket-exemplo-123
 Se quiser confirmar visualmente, dá pra abrir o console da AWS e ver o
 bucket na lista:
 
-<!-- espaço reservado para print: console S3 mostrando o bucket criado -->
+<!-- TODO: espaço reservado para print: console S3 mostrando o bucket criado -->
 
 ## Subindo arquivos via CLI
 
@@ -113,7 +113,7 @@ Se o arquivo aparecer na lista com o tamanho certo, deu tudo certo. No
 console, entrando no bucket, o arquivo aparece listado junto com o tamanho
 e a data de upload:
 
-<!-- espaço reservado para print: bucket no console mostrando o arquivo enviado -->
+<!-- TODO: espaço reservado para print: bucket no console mostrando o arquivo enviado -->
 
 ## Criando o bucket via boto3
 
@@ -226,15 +226,13 @@ lógica por trás de praticamente tudo que se faz com S3: criar um cliente
 (ou usar a CLI já configurada), apontar para uma região e um bucket, e
 chamar o método certo para a ação que você quer.
 
-## Parabéns por ter chegado até aqui
+## Continuando
 
-Esse post cobre o básico para você sair do zero, mas o S3 sozinho já dá
-pano pra manga: versionamento, políticas de acesso, ciclo de vida de
-objetos, integração com outros serviços da AWS... e isso é só um serviço
-entre dezenas. Se você quer aprender AWS de forma estruturada, do
-fundamento até casos reais de uso em produção, dá uma olhada no meu curso.
+O S3 raramente vive sozinho. Onde ele fica mais interessante é quando entra
+num pipeline com outros serviços: alimentando um crawler do Glue, sendo
+consultado via Athena ou processado por uma função Lambda em resposta a
+novos objetos.
 
-Como recompensa por ter lido até o fim, use o cupom **`ARQUITECLOUD`** e
-garanta **50% de desconto**:
-
-**[Quero aprender AWS na prática »](https://go.hotmart.com/M105171021R)**
+É esse pipeline serverless (S3, Lambda, Glue e Athena) que eu cubro no curso
+[Engenharia de dados: AWS, Python e B3 na prática](https://go.hotmart.com/M105171021R).
+Caso queira, utilize o cupom `ARQUITECLOUD` para garantir 50% de desconto na compra.
