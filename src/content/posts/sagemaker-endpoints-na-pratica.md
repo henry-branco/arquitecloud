@@ -69,7 +69,7 @@ do contêiner no ECR. Para criar:
    `arn:aws:iam::123456789012:role/SageMakerExecutionRole`. Você vai
    precisar desse valor no código.
 
-<!-- espaço reservado para print: tela de criação da IAM Role com o trusted entity SageMaker selecionado -->
+<!-- TODO: espaço reservado para print: tela de criação da IAM Role com o trusted entity SageMaker selecionado -->
 
 **3. AWS CLI instalada e configurada** com credenciais que tenham
 permissão para SageMaker e S3:
@@ -240,7 +240,7 @@ print(f"Artefato disponível em: s3://{BUCKET}/modelos/linear/model.tar.gz")
 uv run upload_modelo.py
 ```
 
-<!-- espaço reservado para print: bucket S3 mostrando o arquivo model.tar.gz na pasta modelos/linear/ -->
+<!-- TODO: espaço reservado para print: bucket S3 mostrando o arquivo model.tar.gz na pasta modelos/linear/ -->
 
 ## Os três objetos do SageMaker
 
@@ -260,7 +260,7 @@ você pode atualizar um endpoint existente apontando-o para uma nova
 configuração, sem precisar recriar do zero. Isso é o que viabiliza
 deploys sem downtime em produção, mas esse assunto fica para outro post.
 
-<!-- espaço reservado para print: aba Models do SageMaker no console, com a lista de modelos registrados -->
+<!-- TODO: espaço reservado para print: aba Models do SageMaker no console, com a lista de modelos registrados -->
 
 ## Criando o Model
 
@@ -316,7 +316,7 @@ Três campos merecem atenção:
   variável, o contêiner procura por `inference.py` por padrão, mas é
   boa prática declarar explicitamente.
 
-<!-- espaço reservado para print: model registrado aparecendo na lista de Models do SageMaker -->
+<!-- TODO: espaço reservado para print: model registrado aparecendo na lista de Models do SageMaker -->
 
 ## Criando a Endpoint Configuration
 
@@ -363,7 +363,7 @@ Para modelos maiores ou com requisitos de latência mais exigentes, você
 vai precisar de instâncias mais potentes, mas o custo sobe
 proporcionalmente.
 
-<!-- espaço reservado para print: Endpoint Configuration criada, listada no console do SageMaker -->
+<!-- TODO: espaço reservado para print: Endpoint Configuration criada, listada no console do SageMaker -->
 
 ## Criando o endpoint
 
@@ -401,9 +401,9 @@ instância, puxar a imagem do contêiner e carregar o modelo na memória.
 O `waiter` do boto3 faz polling automático do status e retorna assim
 que o endpoint fica `InService`, sem precisar ficar checando o console.
 
-<!-- espaço reservado para print: endpoint com status "Creating" no console do SageMaker -->
+<!-- TODO: espaço reservado para print: endpoint com status "Creating" no console do SageMaker -->
 
-<!-- espaço reservado para print: endpoint com status "InService" no console do SageMaker -->
+<!-- TODO: espaço reservado para print: endpoint com status "InService" no console do SageMaker -->
 
 > [!WARNING]
 > A partir do momento em que o endpoint fica `InService`, o relógio do
@@ -457,7 +457,7 @@ O modelo aprendeu que a saída é o dobro da entrada, então 5 vira 10,
 `input_fn` no `inference.py` espera: se você mandar `application/json`
 e o script não tratar esse tipo, o contêiner retorna erro 415.
 
-<!-- espaço reservado para print: output do terminal mostrando o resultado da invocação -->
+<!-- TODO: espaço reservado para print: output do terminal mostrando o resultado da invocação -->
 
 ## Limpeza: delete na ordem correta
 
@@ -496,7 +496,7 @@ print("Artefato removido do S3")
 uv run limpar.py
 ```
 
-<!-- espaço reservado para print: endpoint com status "Deleting" no console do SageMaker -->
+<!-- TODO: espaço reservado para print: endpoint com status "Deleting" no console do SageMaker -->
 
 > [!NOTE]
 > O `delete_endpoint` é assíncrono: o boto3 retorna imediatamente, mas

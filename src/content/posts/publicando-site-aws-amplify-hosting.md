@@ -88,7 +88,7 @@ Depois de autorizado, selecione:
 - O **repositório** (no nosso caso, `henry-branco/arquitecloud`).
 - A **branch** que vai ser publicada (`main`).
 
-<!-- espaço reservado para print: tela de seleção de repositório e branch no Amplify -->
+<!-- TODO: espaço reservado para print: tela de seleção de repositório e branch no Amplify -->
 
 ## Passo 2: configurando o build
 
@@ -158,7 +158,7 @@ quatro etapas visíveis no console: **Provision** → **Build** → **Deploy** �
 bastante se algo falhar, geralmente é erro de dependência ou de comando no
 `amplify.yml`, e o log aponta exatamente a linha.
 
-<!-- espaço reservado para print: console do Amplify com as quatro etapas do build concluídas -->
+<!-- TODO: espaço reservado para print: console do Amplify com as quatro etapas do build concluídas -->
 
 Quando as quatro etapas ficarem verdes, o site já está no ar, em uma URL
 gerada automaticamente pela AWS, no formato:
@@ -254,7 +254,7 @@ O passo a passo:
    cadastrada na sua conta AWS, e o domínio costuma ficar ativo em poucos
    minutos.
 
-<!-- espaço reservado para print: registro de domínio no Route 53, com o resultado da busca de disponibilidade -->
+<!-- TODO: espaço reservado para print: registro de domínio no Route 53, com o resultado da busca de disponibilidade -->
 
 Depois de comprado, se você apontar o domínio para o Amplify seguindo a
 seção **Apontando o domínio para o Amplify**, logo abaixo, a configuração
@@ -314,7 +314,7 @@ em **App settings → Domain management → Add domain**:
    automaticamente via AWS Certificate Manager, geralmente em minutos, mas
    pode levar algumas horas dependendo do provedor de DNS.
 
-<!-- espaço reservado para print: tela de Domain management com o domínio configurado -->
+<!-- TODO: espaço reservado para print: tela de Domain management com o domínio configurado -->
 
 > [!TIP] Não esqueça da URL do site
 > Depois que o domínio customizado estiver funcionando, atualize o campo

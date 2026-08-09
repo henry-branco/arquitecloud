@@ -79,7 +79,7 @@ make_bucket: meu-bucket-exemplo-123
 Se quiser confirmar visualmente, dá pra abrir o console da AWS e ver o
 bucket na lista:
 
-<!-- espaço reservado para print: console S3 mostrando o bucket criado -->
+<!-- TODO: espaço reservado para print: console S3 mostrando o bucket criado -->
 
 ## Subindo arquivos via CLI
 
@@ -113,7 +113,7 @@ Se o arquivo aparecer na lista com o tamanho certo, deu tudo certo. No
 console, entrando no bucket, o arquivo aparece listado junto com o tamanho
 e a data de upload:
 
-<!-- espaço reservado para print: bucket no console mostrando o arquivo enviado -->
+<!-- TODO: espaço reservado para print: bucket no console mostrando o arquivo enviado -->
 
 ## Criando o bucket via boto3
 
