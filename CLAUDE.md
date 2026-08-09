@@ -1,5 +1,10 @@
 # Instruções gerais
 
+## Texto
+
+- Escreva em tom natural.
+- Não use traços nos textos.
+
 ## Desenvolvimento
 
 Ao iniciar o servidor de desenvolvimento, use o modo background:

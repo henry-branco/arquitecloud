@@ -55,7 +55,9 @@ Depois do frontmatter, gere o **esqueleto de seções** adaptado ao tema:
 
 ### 4. Escrever iterativamente
 
-Depois de criar o esqueleto, **não** despeje o post inteiro numa tacada. Escreva seção por seção, pedindo confirmação/ajuste antes de seguir. A redação é o ponto em que o usuário quer ir e vir.
+- Depois de criar o esqueleto, **não** despeje o post inteiro numa tacada. Escreva seção por seção, pedindo confirmação/ajuste antes de seguir. A redação é o ponto em que o usuário quer ir e vir.
+
+- O texto do arquivo `.md` do post deve respeitar o limite máximo de 80 caracteres por linha. Se passar disso, adicione uma quebra de linha.
 
 ### 5. Atribuir a tag de nível (obrigatório antes de fechar)
 
@@ -120,7 +122,7 @@ Coloque logo abaixo do parágrafo/passo em que o print faria sentido. Não gere 
 
 ### Blocos de código
 
-Sempre com linguagem: `bash`, `yaml`, `python`, `json`, `typescript`.
+Sempre com linguagem: `bash`, `yaml`, `python`, `json`, `typescript`. Se não houver linguagem no bloco, escreva `text` (alguma saída de código por exemplo).
 
 Quando o bloco representa um arquivo, primeira linha é comentário com o nome:
 
