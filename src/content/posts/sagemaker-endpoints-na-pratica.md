@@ -20,8 +20,9 @@ etapa anterior ao artefato já serializado e pronto para servir.
 ## Custo: leia isso antes de executar qualquer comando
 
 > [!WARNING]
-> O SageMaker Endpoint é fundamentalmente diferente do S3 e do Amplify
-> Hosting em termos de cobrança. Enquanto aqueles cobram por uso (por GB
+> O SageMaker Endpoint é fundamentalmente diferente do S3 e do
+> [Amplify Hosting](/posts/publicando-site-aws-amplify-hosting) em termos
+> de cobrança. Enquanto aqueles cobram por uso (por GB
 > armazenado, por minuto de build), o endpoint cobra por hora de instância
 > ativa. A instância fica alocada enquanto o endpoint existe, independente
 > de você fazer uma ou zero invocações. Endpoint esquecido é a causa mais
@@ -79,7 +80,7 @@ aws configure
 ```
 
 **4. Um bucket S3** para guardar o artefato do modelo. Se você seguiu
-o [post sobre S3](../criando-primeiro-bucket-s3-boto3), já tem um.
+o [post sobre S3](/posts/criando-primeiro-bucket-s3-boto3), já tem um.
 Caso contrário, crie um agora:
 
 ```bash

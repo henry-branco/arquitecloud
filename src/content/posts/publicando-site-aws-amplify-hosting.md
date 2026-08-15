@@ -185,8 +185,9 @@ git push
 O push na branch conectada (`main`, no nosso caso) dispara sozinho um novo
 build e um novo deploy, sem precisar entrar no console, sem repetir passo
 nenhum manualmente. É a mesma diferença entre subir arquivo no S3 na mão
-(como fizemos no post anterior) e ter um pipeline automatizado: aqui, o
-"pipeline" já vem pronto por conta de estar conectado ao git.
+(como fizemos [no post anterior](/posts/criando-primeiro-bucket-s3-boto3))
+e ter um pipeline automatizado: aqui, o "pipeline" já vem pronto por conta
+de estar conectado ao git.
 
 Se algum deploy quebrar alguma coisa, a aba de histórico de builds do app
 tem um botão **Redeploy this version** em cima de qualquer build anterior,
