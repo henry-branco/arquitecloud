@@ -9,6 +9,19 @@ Guia para criar um post no blog arquitecloud (Astro + AstroPaper, pt-BR). Siga e
 
 ## Fluxo
 
+### 0. Levantar posts existentes
+
+Antes de qualquer outra coisa, liste os posts já publicados:
+
+```bash
+ls src/content/posts
+```
+
+Para cada post existente, você precisa saber (abra os que parecerem
+relevantes ao tema do novo post) qual serviço/conceito ele cobre e seu
+slug (nome do arquivo sem `.md`). Isso alimenta a etapa de links internos
+no passo 4.
+
 ### 1. Coletar mínimo necessário
 
 Pergunte ao usuário (em uma única rodada, curto):
@@ -58,6 +71,44 @@ Depois do frontmatter, gere o **esqueleto de seções** adaptado ao tema:
 - Depois de criar o esqueleto, **não** despeje o post inteiro numa tacada. Escreva seção por seção, pedindo confirmação/ajuste antes de seguir. A redação é o ponto em que o usuário quer ir e vir.
 
 - O texto do arquivo `.md` do post deve respeitar o limite máximo de 80 caracteres por linha. Se passar disso, adicione uma quebra de linha.
+
+- **Links internos obrigatórios**: sempre que o texto mencionar um
+  serviço, conceito ou passo que já é coberto por outro post existente
+  (levantados no passo 0), adicione um convite ao leitor para ler esse
+  post. O link **não** deve aparecer como texto âncora embutido no
+  meio de uma frase; deve vir numa frase própria, natural, ao final do
+  parágrafo ou do item de lista, convidando o leitor a ir adiante.
+
+  Use sempre forma impessoal/imperativa ("leia", "confira", "veja").
+  **Nunca** escreva em primeira pessoa do plural ("temos", "fizemos").
+
+  Exemplo — post novo sobre SageMaker que menciona S3:
+
+  ```markdown
+  Suba o artefato do modelo para um bucket S3 antes de configurar
+  o Model do SageMaker. Se você ainda não conhece o S3, confira o
+  [post sobre buckets e upload via CLI/boto3](/posts/criando-primeiro-bucket-s3-boto3).
+  ```
+
+  Outros formatos aceitos (adapte ao contexto):
+
+  ```markdown
+  Para saber mais sobre o S3, veja o
+  [post sobre S3: bucket e upload via CLI/boto3](/posts/criando-primeiro-bucket-s3-boto3).
+
+  Se quiser ir direto para a prática, leia o
+  [post sobre SageMaker Endpoints](/posts/sagemaker-endpoints-na-pratica),
+  que cobre o ciclo completo com código.
+  ```
+
+  - URL do link: `/posts/<slug>` (o slug é o nome do arquivo sem
+    `.md`; ver `getPostUrl` em `src/utils/getPostPaths.ts`).
+  - Linke só a **primeira** menção relevante do conceito no post, não
+    toda ocorrência.
+  - Só linke se o post existente realmente cobrir o que está sendo
+    citado; não force o link em menções genéricas demais.
+  - Isso não é opcional nem depende do usuário pedir: é padrão do
+    projeto, sempre que fizer sentido.
 
 ### 5. Atribuir a tag de nível (obrigatório antes de fechar)
 
