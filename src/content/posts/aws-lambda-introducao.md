@@ -263,3 +263,15 @@ automática, custo zero em idle e zero overhead operacional. Para
 workloads orientados a evento e tráfego irregular, a Lambda costuma
 ser a escolha mais simples e barata. Para processamento longo,
 stateful ou CPU-intensivo, outras opções da AWS se encaixam melhor.
+
+## Continuando
+
+A Lambda raramente vive sozinha. Onde ela fica mais interessante é
+quando entra num pipeline orientado a eventos: reagindo a arquivos
+novos num bucket S3, processando mensagens de uma fila SQS ou
+sendo invocada em resposta a eventos do EventBridge.
+
+É exatamente esse pipeline (S3 disparando uma Lambda que processa
+e entrega dados para análise) que eu cubro no curso
+[Engenharia de dados: AWS, Python e B3 na prática](https://go.hotmart.com/M105171021R).
+Caso queira, utilize o cupom `ARQUITECLOUD` para garantir 50% de desconto na compra.
