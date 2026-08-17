@@ -87,8 +87,10 @@ sentido.
 
 O **SageMaker Training Job** é a resposta para isso. Você define o
 script de treinamento, escolhe qual instância vai rodar (CPU ou GPU),
-aponta os dados de entrada no [S3](/posts/criando-primeiro-bucket-s3-boto3)
-e submete o job. O SageMaker provisiona a instância, executa o script e encerra
+aponta os dados de entrada no S3 e submete o job. Se você ainda
+não conhece o S3, vale ler o [post sobre buckets e upload via
+CLI/boto3](/posts/criando-primeiro-bucket-s3-boto3) antes de
+continuar. O SageMaker provisiona a instância, executa o script e encerra
 a máquina ao terminar. Você só paga pelo tempo que o job ficou rodando.
 
 Isso tem duas vantagens principais:
@@ -197,9 +199,9 @@ S3), serverless (sem instância dedicada, cobrança por invocação) e
 multi-modelo (vários modelos em uma mesma instância).
 
 Esse assunto tem nuances importantes de custo e arquitetura que merecem
-um post separado. Se você quiser ir direto para a prática, o post
-[SageMaker Endpoints na prática](/posts/sagemaker-endpoints-na-pratica)
-cobre o ciclo completo com código.
+um post separado. Se você quiser ir direto para a prática, leia o
+[post SageMaker Endpoints na prática](/posts/sagemaker-endpoints-na-pratica),
+que cobre o ciclo completo com código.
 
 ## Como funciona o custo do SageMaker
 

@@ -74,13 +74,31 @@ Depois do frontmatter, gere o **esqueleto de seções** adaptado ao tema:
 
 - **Links internos obrigatórios**: sempre que o texto mencionar um
   serviço, conceito ou passo que já é coberto por outro post existente
-  (levantados no passo 0), transforme a primeira menção relevante em
-  link para esse post. Exemplo: um post novo sobre SageMaker que manda
-  subir o artefato do modelo para um bucket cita o post de S3:
+  (levantados no passo 0), adicione um convite ao leitor para ler esse
+  post. O link **não** deve aparecer como texto âncora embutido no
+  meio de uma frase; deve vir numa frase própria, natural, ao final do
+  parágrafo ou do item de lista, convidando o leitor a ir adiante.
+
+  Use sempre forma impessoal/imperativa ("leia", "confira", "veja").
+  **Nunca** escreva em primeira pessoa do plural ("temos", "fizemos").
+
+  Exemplo — post novo sobre SageMaker que menciona S3:
 
   ```markdown
-  Suba o artefato do modelo para um [bucket S3](/posts/criando-primeiro-bucket-s3-boto3)
-  antes de configurar o Model do SageMaker.
+  Suba o artefato do modelo para um bucket S3 antes de configurar
+  o Model do SageMaker. Se você ainda não conhece o S3, confira o
+  [post sobre buckets e upload via CLI/boto3](/posts/criando-primeiro-bucket-s3-boto3).
+  ```
+
+  Outros formatos aceitos (adapte ao contexto):
+
+  ```markdown
+  Para saber mais sobre o S3, veja o
+  [post sobre S3: bucket e upload via CLI/boto3](/posts/criando-primeiro-bucket-s3-boto3).
+
+  Se quiser ir direto para a prática, leia o
+  [post sobre SageMaker Endpoints](/posts/sagemaker-endpoints-na-pratica),
+  que cobre o ciclo completo com código.
   ```
 
   - URL do link: `/posts/<slug>` (o slug é o nome do arquivo sem
