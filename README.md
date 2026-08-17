@@ -59,6 +59,65 @@ Contribuições são muito bem-vindas! Você pode ajudar de três formas:
 
 Toda sugestão de conteúdo sobre AWS é bem-vinda: de serviço específico a padrões de arquitetura, boas práticas ou casos de uso reais.
 
+## Prints pendentes
+
+Placeholders de print ainda não substituídos por imagens reais. Cada item leva à linha original do comentário no arquivo.
+
+### Como adicionar um print
+
+1. **Salve o arquivo** em `src/assets/posts/{slug-do-post}/` com o nome `L{linha}-{slug-curto}.png`.
+
+   Exemplo para o item da linha 49 do post de Lambda:
+   ```
+   src/assets/posts/aws-lambda-introducao/L49-fluxo-invocacao.png
+   ```
+
+2. **Substitua o comentário TODO** no post pelo Markdown de imagem com caminho relativo:
+
+   ```md
+   ![Descrição do print](../../assets/posts/aws-lambda-introducao/L49-fluxo-invocacao.png)
+   ```
+
+3. **Marque o item abaixo** como concluído: troque `- [ ]` por `- [x]`.
+
+### AWS Lambda — Introdução
+
+- [ ] [Diagrama de fluxo de invocação: event source → Lambda → execução → resposta](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/aws-lambda-introducao.md#L49)
+- [ ] [Tela de criação da função com os campos preenchidos antes de confirmar](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/aws-lambda-introducao.md#L68)
+- [ ] [Resultado da execução do teste no console, mostrando o painel de resposta com status 200](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/aws-lambda-introducao.md#L109)
+
+### Amazon SageMaker AI — Introdução
+
+- [ ] [Tela do SageMaker Studio no console da AWS, mostrando o Code Editor aberto](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/amazon-sagemaker-ai-introducao.md#L65)
+- [ ] [Lista de Training Jobs no console do SageMaker, com status e duração de cada run](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/amazon-sagemaker-ai-introducao.md#L104)
+- [ ] [Interface do MLflow mostrando a comparação de runs com métricas e parâmetros](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/amazon-sagemaker-ai-introducao.md#L151)
+- [ ] [Grafo de um pipeline no console do SageMaker, mostrando os steps conectados](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/amazon-sagemaker-ai-introducao.md#L175)
+
+### Criando seu primeiro bucket S3 com boto3
+
+- [ ] [Console S3 mostrando o bucket criado](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/criando-primeiro-bucket-s3-boto3.md#L82)
+- [ ] [Bucket no console mostrando o arquivo enviado](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/criando-primeiro-bucket-s3-boto3.md#L116)
+- [ ] [Aba Permissions com o Block Public Access ativado](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/criando-primeiro-bucket-s3-boto3.md#L209)
+
+### Publicando site no AWS Amplify Hosting
+
+- [ ] [Tela de seleção de repositório e branch no Amplify](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/publicando-site-aws-amplify-hosting.md#L91)
+- [ ] [Console do Amplify com as quatro etapas do build concluídas](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/publicando-site-aws-amplify-hosting.md#L161)
+- [ ] [Registro de domínio no Route 53, com o resultado da busca de disponibilidade](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/publicando-site-aws-amplify-hosting.md#L258)
+- [ ] [Tela de Domain management com o domínio configurado](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/publicando-site-aws-amplify-hosting.md#L318)
+
+### SageMaker Endpoints na prática
+
+- [ ] [Tela de criação da IAM Role com o trusted entity SageMaker selecionado](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L75)
+- [ ] [Bucket S3 mostrando o arquivo model.tar.gz na pasta modelos/linear/](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L246)
+- [ ] [Aba Models do SageMaker no console, com a lista de modelos registrados](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L266)
+- [ ] [Model registrado aparecendo na lista de Models do SageMaker](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L322)
+- [ ] [Endpoint Configuration criada, listada no console do SageMaker](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L369)
+- [ ] [Endpoint com status "Creating" no console do SageMaker](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L407)
+- [ ] [Endpoint com status "InService" no console do SageMaker](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L409)
+- [ ] [Output do terminal mostrando o resultado da invocação](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L463)
+- [ ] [Endpoint com status "Deleting" no console do SageMaker](https://github.com/henry-branco/arquitecloud/blob/main/src/content/posts/sagemaker-endpoints-na-pratica.md#L502)
+
 ## Licença
 
 Conteúdo © Henrique Branco. Tema baseado no [AstroPaper](https://github.com/satnaing/astro-paper) (MIT).
