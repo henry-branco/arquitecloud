@@ -2,7 +2,7 @@
 
 Blog com conteúdo gratuito sobre AWS em português, escrito por [Henrique Branco](https://www.linkedin.com/in/henriqueajnb/).
 
-🌐 **Site:** <https://main.d24bpvjwpji1xz.amplifyapp.com/>
+🌐 **Site:** <https://www.arquitecloud.com/>
 
 ## Stack
 
