@@ -68,6 +68,7 @@ Placeholders de print ainda não substituídos por imagens reais. Cada item leva
 1. **Salve o arquivo** em `src/assets/posts/{slug-do-post}/` com o nome `L{linha}-{slug-curto}.png`.
 
    Exemplo para o item da linha 49 do post de Lambda:
+
    ```
    src/assets/posts/aws-lambda-introducao/L49-fluxo-invocacao.png
    ```
