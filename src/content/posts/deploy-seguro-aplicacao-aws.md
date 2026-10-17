@@ -143,20 +143,19 @@ nem Lambda em VPC, nem EC2. Quem recebe tráfego público é o ALB (ou
 CloudFront, ou API Gateway), e ele conversa com a aplicação por dentro
 da VPC.
 
-```text
-Internet
-   │
-   ▼
-┌──────────────────────────────────────┐
-│ Subnet pública (10.0.1.0/24)          │
-│  ALB  │  NAT Gateway                  │
-└──────┬────────┬──────────────────────┘
-       │        │
-       ▼        ▼
-┌──────────────────────────────────────┐
-│ Subnet privada (10.0.11.0/24)         │
-│  Fargate task / EC2 / Lambda ENI      │
-└──────────────────────────────────────┘
+```mermaid
+flowchart TD
+  Internet((Internet))
+  subgraph Publica["Subnet pública · 10.0.1.0/24"]
+    ALB[ALB]
+    NAT[NAT Gateway]
+  end
+  subgraph Privada["Subnet privada · 10.0.11.0/24"]
+    Task["Fargate task / EC2 / Lambda ENI"]
+  end
+  Internet --> ALB
+  ALB --> Task
+  Task --> NAT --> Internet
 ```
 
 Sempre crie **duas subnets públicas e duas privadas**, em
@@ -223,20 +222,17 @@ empresa, backends de SPA, workers HTTP.
 
 Diagrama:
 
-```text
-Usuário
-  │ HTTPS (443)
-  ▼
-CloudFront (WAF + cache de borda)
-  │ HTTPS (443)
-  ▼
-ALB (subnet pública, SG permite 443 do CloudFront)
-  │ HTTP (8080) dentro da VPC
-  ▼
-Fargate tasks (subnet privada, SG permite 8080 só do ALB)
-  │
-  ▼
-RDS / DynamoDB / S3 (via VPC endpoints quando possível)
+```mermaid
+flowchart TD
+  User([Usuário])
+  CF["CloudFront<br/>WAF + cache de borda"]
+  ALB["ALB<br/>subnet pública · SG permite 443 do CloudFront"]
+  Task["Fargate tasks<br/>subnet privada · SG permite 8080 só do ALB"]
+  Data["RDS / DynamoDB / S3<br/>via VPC endpoints quando possível"]
+  User -- "HTTPS (443)" --> CF
+  CF -- "HTTPS (443)" --> ALB
+  ALB -- "HTTP (8080) dentro da VPC" --> Task
+  Task --> Data
 ```
 
 ### Passo 1: cluster ECS e task definition
@@ -354,20 +350,17 @@ gratuita abaixo de ~1 milhão de requisições por mês.
 
 Diagrama:
 
-```text
-Usuário
-  │ HTTPS (443)
-  ▼
-CloudFront (WAF + cache opcional)
-  │ HTTPS
-  ▼
-API Gateway (REST ou HTTP API, com Cognito authorizer)
-  │ invocação assíncrona/síncrona
-  ▼
-Lambda (opcional em VPC, com role mínima)
-  │
-  ▼
-DynamoDB / S3 / RDS Proxy
+```mermaid
+flowchart TD
+  User([Usuário])
+  CF["CloudFront<br/>WAF + cache opcional"]
+  APIGW["API Gateway<br/>REST ou HTTP API, com Cognito authorizer"]
+  Lambda["Lambda<br/>opcional em VPC, com role mínima"]
+  Data["DynamoDB / S3 / RDS Proxy"]
+  User -- "HTTPS (443)" --> CF
+  CF -- "HTTPS" --> APIGW
+  APIGW -- "invocação síncrona/assíncrona" --> Lambda
+  Lambda --> Data
 ```
 
 Diferenças em relação à arquitetura 1:
@@ -476,17 +469,18 @@ Em produção nova, prefira as outras duas.
 
 Diagrama:
 
-```text
-Usuário
-  │ HTTPS (443)
-  ▼
-ALB (subnet pública)
-  │ HTTP (80 ou 8080)
-  ▼
-EC2 instance (subnet privada, SG permite 80 só do ALB)
-  │
-  ├─► Internet via NAT Gateway (para apt/yum/pip)
-  └─► Acesso administrativo via SSM Session Manager
+```mermaid
+flowchart TD
+  User([Usuário])
+  ALB["ALB<br/>subnet pública"]
+  EC2["EC2 instance<br/>subnet privada · SG permite 80 só do ALB"]
+  NAT["NAT Gateway<br/>saída para apt/yum/pip"]
+  SSM["SSM Session Manager<br/>acesso administrativo"]
+  Internet((Internet))
+  User -- "HTTPS (443)" --> ALB
+  ALB -- "HTTP (80 ou 8080)" --> EC2
+  EC2 --> NAT --> Internet
+  SSM --> EC2
 ```
 
 ### Passo 1: AMI e user data
