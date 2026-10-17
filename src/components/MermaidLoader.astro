@@ -1,0 +1,104 @@
+---
+---
+
+<script>
+  import type { MermaidConfig } from "mermaid";
+
+  type MermaidModule = typeof import("mermaid").default;
+
+  let mermaidPromise: Promise<MermaidModule> | null = null;
+
+  function currentTheme(): "dark" | "default" {
+    return document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "default";
+  }
+
+  async function loadMermaid(): Promise<MermaidModule> {
+    if (!mermaidPromise) {
+      mermaidPromise = import("mermaid").then(mod => mod.default);
+    }
+    return mermaidPromise;
+  }
+
+  async function renderAll() {
+    const nodes = document.querySelectorAll<HTMLElement>(
+      "div.mermaid[data-mermaid-source]:not([data-mermaid-rendered])"
+    );
+    if (!nodes.length) return;
+
+    const mermaid = await loadMermaid();
+    const config: MermaidConfig = {
+      startOnLoad: false,
+      theme: currentTheme(),
+      securityLevel: "strict",
+      fontFamily: "inherit",
+    };
+    mermaid.initialize(config);
+
+    for (const node of Array.from(nodes)) {
+      // Mermaid replaces the inner text with SVG. Keep the raw source on a
+      // data attribute so we can re-render when the theme changes.
+      if (!node.dataset.mermaidRaw) {
+        node.dataset.mermaidRaw = node.textContent ?? "";
+      }
+      try {
+        const id = `mermaid-${Math.random().toString(36).slice(2, 10)}`;
+        const { svg } = await mermaid.render(id, node.dataset.mermaidRaw);
+        node.innerHTML = svg;
+        node.dataset.mermaidRendered = "true";
+      } catch (err) {
+        console.error("Falha ao renderizar diagrama Mermaid", err);
+        node.dataset.mermaidRendered = "error";
+      }
+    }
+  }
+
+  async function rerenderForThemeChange() {
+    const nodes = document.querySelectorAll<HTMLElement>(
+      "div.mermaid[data-mermaid-source][data-mermaid-rendered='true']"
+    );
+    for (const node of Array.from(nodes)) {
+      node.removeAttribute("data-mermaid-rendered");
+      if (node.dataset.mermaidRaw) {
+        node.textContent = node.dataset.mermaidRaw;
+      }
+    }
+    await renderAll();
+  }
+
+  document.addEventListener("astro:page-load", renderAll);
+
+  // Re-render when the theme toggles (theme.ts flips the `dark` class on <html>).
+  const observer = new MutationObserver(mutations => {
+    for (const m of mutations) {
+      if (m.type === "attributes" && m.attributeName === "class") {
+        rerenderForThemeChange();
+        return;
+      }
+    }
+  });
+  observer.observe(document.documentElement, { attributes: true });
+</script>
+
+<style is:global>
+  div.mermaid[data-mermaid-source] {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  div.mermaid[data-mermaid-source]:not([data-mermaid-rendered]) {
+    font-family: var(--font-google-sans-code), monospace;
+    font-size: 0.75rem;
+    white-space: pre;
+    color: var(--color-muted-foreground, inherit);
+    opacity: 0.6;
+  }
+
+  div.mermaid[data-mermaid-source] svg {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
