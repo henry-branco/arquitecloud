@@ -186,6 +186,30 @@ frontend:
 
 Explique cada parte relevante do bloco depois dele, em bullets ou parágrafo.
 
+### Diagramas
+
+- **Sempre em Mermaid**, nunca em ASCII art ou box drawing (`┌`, `└`, `│`, `▼`, `─`).
+- Use blocos ```mermaid; o remark plugin converte em `<div class="mermaid">` e o loader no layout renderiza no cliente respeitando o tema.
+- Tipos comuns: `flowchart TD` para arquitetura/rede/fluxo, `sequenceDiagram` para interações entre serviços, `erDiagram` para modelo de dados, `stateDiagram-v2` para máquinas de estado.
+
+Exemplo típico de arquitetura AWS:
+
+````markdown
+```mermaid
+flowchart TD
+  Internet --> ALB
+  subgraph Pública["Subnet pública 10.0.1.0/24"]
+    ALB
+    NAT[NAT Gateway]
+  end
+  subgraph Privada["Subnet privada 10.0.11.0/24"]
+    Task["Fargate task / EC2 / Lambda ENI"]
+  end
+  ALB --> Task
+  Task --> NAT --> Internet
+```
+````
+
 ## Referências rápidas
 
 - Schema completo: `src/content.config.ts:10-24`.

@@ -23,6 +23,23 @@ Gerencie o servidor em background com `astro dev stop`, `astro dev status` e `as
 - Lint: `npm run lint` (ESLint). Formatação: `npm run format` (Prettier, com plugins para Astro e Tailwind).
 - Build gera o índice de busca com Pagefind e copia para `public/pagefind`. Não edite `public/pagefind` manualmente.
 
+## Diagramas
+
+- **Sempre use Mermaid** para qualquer diagrama (arquitetura, fluxo, sequência, ERD, etc.).
+- **Nunca** desenhe diagramas em ASCII art ou com caracteres de box drawing (`┌`, `└`, `│`, `▼`, `─`, etc.). Esse formato não deve aparecer em nenhum post, README ou documento do projeto.
+- Em posts, use blocos de código com a linguagem `mermaid`:
+
+  ````markdown
+  ```mermaid
+  flowchart TD
+    Internet --> ALB
+    ALB --> Fargate
+  ```
+  ````
+
+- O plugin `src/utils/remark/mermaid.ts` converte esses blocos em `<div class="mermaid">`, e o `MermaidLoader` no `Layout.astro` renderiza no cliente respeitando o tema claro/escuro.
+- Escolha o tipo de diagrama Mermaid adequado: `flowchart` para arquitetura/fluxo, `sequenceDiagram` para interações entre serviços, `erDiagram` para modelo de dados, `stateDiagram` para estados.
+
 ## Documentação
 
 Documentação completa do Astro: <https://docs.astro.build>
